@@ -6,6 +6,7 @@
 #include <libtcod.hpp>
 #include "StateMachine.h"
 #include "TitleState.h"
+#include "MenuState.h"
 
 // Hide the console window
 #pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
@@ -13,21 +14,27 @@
 
 StateMachine* theGame;
 
+
 int main()
 {
 	// Initialize libtcod.
-	TCODConsole::initRoot(80, 80, " ");
-	
+	TCODConsole::initRoot(80, 80, " ", false, TCOD_RENDERER_OPENGL);
+	TCODSystem::setFps(60);
+
 	// Initialize FSM
 	theGame = new StateMachine();
 
 	// Create, Initialize, and Add States
 	TitleState* titleState = new TitleState();
+	MenuState* menuState = new MenuState();
 
-	theGame->AddState(titleState);
+	titleState->nextState = menuState;
 
+	theGame->AddState(menuState);
+	
 
 	// Run FSM.
+	
 	theGame->Run();
 
 	// Clean Up States

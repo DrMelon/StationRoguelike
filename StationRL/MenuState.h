@@ -1,6 +1,6 @@
 #pragma once
 #include "state.h"
-
+#include "HUD.h"
 //@Author: J. Brown / DrMelon
 //@Purpose: Main menu state - Start a new game, load a game, options, credits, exit.
 
@@ -24,5 +24,8 @@ class MenuState : public State
 		TCODNoise* cloudGen;
 
 		// Menu items
+
+		// HUD [DEBUG]
+		HUD* theHUD;
 };
 

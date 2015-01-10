@@ -18,5 +18,6 @@ class StateMachine
 
 	private:
 		std::vector<State*> stateList;
+		bool popAll;
 };
 

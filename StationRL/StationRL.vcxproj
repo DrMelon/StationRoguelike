@@ -11,6 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="HUD.cpp" />
+    <ClCompile Include="HUDBar.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="State.cpp" />
@@ -18,6 +20,8 @@
     <ClCompile Include="TitleState.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="HUD.h" />
+    <ClInclude Include="HUDBar.h" />
     <ClInclude Include="MenuState.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateMachine.h" />

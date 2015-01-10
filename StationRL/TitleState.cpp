@@ -24,7 +24,12 @@ TitleState::TitleState(void)
 
 void TitleState::Draw()
 {
-	
+	myConsole->clear();
+
+	titleImage->blit2x(myConsole, 0, 0);
+
+
+
 	// Blit own console onto screen.
 	TCODConsole::root->blit(myConsole, 0, 0, 80, 80, TCODConsole::root, 0, 0, fadeAmt, fadeAmt);
 }
@@ -36,7 +41,7 @@ void TitleState::Update()
 
 	if(fadeAmt < 1.0f)
 	{
-		fadeAmt += 0.1f * (1.0/60.0);
+		fadeAmt += 0.1f * (1.0/30.0);
 	}
 	else
 	{

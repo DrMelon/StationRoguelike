@@ -3,14 +3,21 @@
 
 StateMachine::StateMachine(void)
 {
+	popAll = false;
 }
 
 void StateMachine::Run()
 {
 
-	// While we have states to run through...
+
+	// While we have states to run through... (main loop)
 	while(stateList.size() > 0)
 	{
+		if(popAll == true)
+		{
+			PopState();
+			return;
+		}
 
 		// Check if the current state wants to advance to the next state.
 		if(stateList.back()->goNextState == true)
@@ -20,10 +27,11 @@ void StateMachine::Run()
 			{
 				AddState(stateList.back()->nextState);
 			}
-			// If there isn't, pop off a state.
+			// If there isn't, begin popping all states
 			else
 			{
-				PopState();
+				popAll = true;
+				
 			}
 
 		}
