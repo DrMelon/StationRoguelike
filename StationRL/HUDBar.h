@@ -13,7 +13,7 @@ class HUDBar
 		~HUDBar(void);
 		void DrawBar();
 		void Update();
-	private:
+	//private: //I'M LAZY OK
 		int* linkedValue;
 		int* maxValue;
 		int xPos, yPos;

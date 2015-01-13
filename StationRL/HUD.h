@@ -17,6 +17,8 @@
 
 #include <libtcod.hpp>
 #include "HUDBar.h"
+#include <string>
+#include "Log.h"
 
 class HUD
 {
@@ -25,6 +27,7 @@ class HUD
 		~HUD(void);
 
 		TCODConsole* mainConsole; // Main console to draw on.
+		Log* logInstance; // Log to draw
 
 		//Player* myPlayer // Reference to player to fetch suit data etc from.
 		int* myPlayerDotHealth; //[DEBUG]

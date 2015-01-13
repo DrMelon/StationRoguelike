@@ -19,7 +19,7 @@ int main()
 {
 	// Initialize libtcod.
 	TCODConsole::initRoot(80, 80, " ", false, TCOD_RENDERER_OPENGL);
-	TCODSystem::setFps(60);
+	TCODSystem::setFps(30);
 
 	// Initialize FSM
 	theGame = new StateMachine();

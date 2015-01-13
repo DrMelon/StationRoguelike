@@ -22,18 +22,9 @@ void HUDBar::DrawBar()
 {
 	// Draw on the console relative to the position.
 	// The bar is vertical, with a numeric value at the bottom in %
-
-	int startPoint = yPos;
-	int endPoint = startPoint + barSize;
-
-	// Draw bar background
-	for(int i = 0; i < barSize; i++)
-	{
-		consoleToDrawOn->setCharBackground(xPos, i, *backColour);
-	}
-
-	// Draw bar foreground
-	int blockValue = (*linkedValue); // Fetch linked value.
+	
+	// Fetch linked value.
+	int blockValue = (*linkedValue); 
 
 	// Constrain to maximum/minimum size
 	if (blockValue > (*maxValue))
@@ -45,15 +36,30 @@ void HUDBar::DrawBar()
 		blockValue = 0;
 	}
 
-	// Draw requisite number of blocks.
-	int numBlocksToDraw = ((*linkedValue) / (*maxValue)) * barSize;
-	for(int i = 0; i < numBlocksToDraw; i++)
+	// Get bar fill %
+	float barPercent = (float)(*linkedValue) / (float)(*maxValue);
+
+
+	// Draw bar background
+	for(int i = yPos; i < yPos + barSize; i++)
 	{
-		consoleToDrawOn->setCharBackground(xPos, i, *frontColour);
+		consoleToDrawOn->setCharBackground(xPos, i, *backColour);
+	}
+
+	// Draw bar foreground
+	// Draw requisite number of blocks.
+	int numBlocksToDraw = (int)(barPercent * barSize);
+	for(int i = yPos; i < yPos + numBlocksToDraw; i++)
+	{
+		consoleToDrawOn->putCharEx(xPos, i, 219, *frontColour, *backColour);
+		if(i+1 < yPos + barSize)
+		{
+			consoleToDrawOn->putCharEx(xPos, i+1, TCOD_CHAR_BLOCK3, *frontColour, *backColour);
+		}
 	}
 
 	// Draw numeral
-	consoleToDrawOn->print(xPos - 1, yPos - 1, "%d%%", ((*linkedValue) / (*maxValue)) * 100);
+	consoleToDrawOn->print(xPos - 1, yPos - 1, "%d%%", (int)(barPercent * 100));
 	
 
 }

@@ -6,7 +6,8 @@ MenuState::MenuState(void)
 	// Create own console.
 	myConsole = new TCODConsole(80, 80);
 	
-
+	// Get log instance
+	logInstance = &Log::instance();
 
 	// Defaults
 	nextState = 0;
@@ -16,6 +17,11 @@ MenuState::MenuState(void)
 
 	theHUD = new HUD(myConsole);
 
+	theHUDCorrupt = new CorruptEffect(myConsole);
+
+	// Write into log
+	logInstance->SendMessage("[ERROR] Suit Integrity Compromised", (TCODColor*)&TCODColor::grey);
+
 }
 
 void MenuState::Draw()
@@ -24,7 +30,9 @@ void MenuState::Draw()
 
 	// Draw HUD
 	theHUD->DrawHUD();
-
+	
+	// Corrupt screen
+	theHUDCorrupt->Update();
 
 	// Blit own console onto screen.
 	TCODConsole::root->blit(myConsole, 0, 0, 80, 80, TCODConsole::root, 0, 0);
