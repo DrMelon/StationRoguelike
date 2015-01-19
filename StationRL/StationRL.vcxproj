@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CorruptEffect.cpp" />
+    <ClCompile Include="GameState.cpp" />
     <ClCompile Include="HUD.cpp" />
     <ClCompile Include="HUDBar.cpp" />
     <ClCompile Include="Log.cpp" />
@@ -19,16 +20,21 @@
     <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="StateMachine.cpp" />
+    <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="Tilemap.cpp" />
     <ClCompile Include="TitleState.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CorruptEffect.h" />
+    <ClInclude Include="GameState.h" />
     <ClInclude Include="HUD.h" />
     <ClInclude Include="HUDBar.h" />
     <ClInclude Include="Log.h" />
     <ClInclude Include="MenuState.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateMachine.h" />
+    <ClInclude Include="Tile.h" />
+    <ClInclude Include="Tilemap.h" />
     <ClInclude Include="TitleState.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

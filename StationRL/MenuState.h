@@ -22,17 +22,11 @@ class MenuState : public State
 		// Our console
 		TCODConsole* myConsole;
 
-		// Log instance
-		Log* logInstance;
-
-
 		// We want sorta moody clouds in the background, perlin noise stuff.
 		TCODNoise* cloudGen;
 
 		// Menu items
 
-		// HUD [DEBUG]
-		HUD* theHUD;
-		CorruptEffect* theHUDCorrupt;
+
 };
 

@@ -7,6 +7,7 @@
 #include "StateMachine.h"
 #include "TitleState.h"
 #include "MenuState.h"
+#include "GameState.h"
 
 // Hide the console window
 #pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
@@ -27,10 +28,11 @@ int main()
 	// Create, Initialize, and Add States
 	TitleState* titleState = new TitleState();
 	MenuState* menuState = new MenuState();
+	GameState* gameState = new GameState();
 
 	titleState->nextState = menuState;
 
-	theGame->AddState(menuState);
+	theGame->AddState(gameState);
 	
 
 	// Run FSM.
